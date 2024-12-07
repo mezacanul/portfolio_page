@@ -4,10 +4,9 @@ function Hero() {
     return (
         <>
             <Heading fontSize={"xl"}>Nice to meet you!</Heading>
-            <Heading fontSize={"xl"}>I'm Eduardo Meza.</Heading>
+            <Heading fontSize={"xl"}>{"I'm Eduardo Meza."}</Heading>
             <Text>
-                Based in MX, I'm a front-end developer passionate about building
-                fast, efficient and visually appealing web apps that users love.
+                {"Based in MX, I'm a front-end developer passionate about building fast, efficient and visually appealing web apps that users love."}
             </Text>
         </>
     )
