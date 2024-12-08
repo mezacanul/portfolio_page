@@ -25,8 +25,8 @@ function Hero() {
                     borderWidth={2}
                     borderColor={"white"}
                     position={"absolute"}
-                    top={"40rem"}
-                    right={"30rem"}
+                    bottom={"8rem"}
+                    right={"35rem"}
                 />
             </FlexDimension>
 
@@ -35,8 +35,8 @@ function Hero() {
                     src="pattern-rings.svg"
                     height={"10rem"}
                     position={"absolute"}
-                    top={"8rem"}
-                    left={"-20rem"}
+                    top={"11rem"}
+                    left={"-25rem"}
                     alt=""
                 />
             </FlexDimension>

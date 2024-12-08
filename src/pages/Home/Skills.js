@@ -38,8 +38,8 @@ export default function Skills() {
                     src="pattern-rings.svg"
                     height={"10rem"}
                     position={"absolute"}
-                    bottom={"20rem"}
-                    right={"-32rem"}
+                    bottom={"10rem"}
+                    right={"-36rem"}
                     alt=""
                 />
             </FlexDimension>
