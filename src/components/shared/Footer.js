@@ -13,6 +13,7 @@ export default function Footer() {
                 position={"absolute"}
                 bottom={"14rem"}
                 left={"-20rem"}
+                alt=""
             />
             <Container maxW={"container.xl"}>
                 <Content />
@@ -28,7 +29,7 @@ function Content() {
         <HStack justify={"space-between"} align={"flex-start"}>
             <VStack align={"flex-start"} w={"40%"}>
                 <Heading fontSize={"xl"}>Contact</Heading>
-                <Text>I would love to hear about your project and how I could help. Please fill in the form, and I’ll get back to you as soon as possible.</Text>
+                <Text>{"I would love to hear about your project and how I could help. Please fill in the form, and I’ll get back to you as soon as possible."}</Text>
             </VStack>
 
             <VStack w={"45%"} spacing={"2.5rem"} align={"flex-end"}>

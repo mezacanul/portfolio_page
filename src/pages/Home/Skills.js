@@ -40,6 +40,7 @@ export default function Skills() {
                     position={"absolute"}
                     bottom={"20rem"}
                     right={"-32rem"}
+                    alt=""
                 />
             </FlexDimension>
         </Container>

@@ -16,7 +16,7 @@ function Hero() {
     return (
         <Container maxW={"container.xl"} position={"relative"} height={"100vh"}>
             <FlexDimension justify={"flex-end"}>
-                <Image src="image-profile-desktop.webp" />
+                <Image src="image-profile-desktop.webp" alt=""/>
             </FlexDimension>
 
             <FlexDimension>
@@ -37,6 +37,7 @@ function Hero() {
                     position={"absolute"}
                     top={"8rem"}
                     left={"-20rem"}
+                    alt=""
                 />
             </FlexDimension>
 
@@ -54,7 +55,7 @@ function Greeting() {
                 Nice to meet you!
             </Heading>
             <HStack align={"flex-start"}>
-                <Heading fontSize={"xl"} mb={"2rem"} me={"1rem"}>I'm{" "}</Heading>
+                <Heading fontSize={"xl"} mb={"2rem"} me={"1rem"}>{"I'm "}</Heading>
                 <Heading fontSize={"xl"} mb={"2rem"} display={"inline"} borderBottom={"8px"} borderColor={"green"}>Eduardo Meza</Heading>
                 <Heading fontSize={"xl"} alignSelf={"flex-end"} pb={"2.4rem"} ml={"-0.5rem"}>{"."}</Heading>
             </HStack>

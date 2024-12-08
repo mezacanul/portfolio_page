@@ -59,7 +59,7 @@ function Project({name, skills, img}) {
                         </VStack>
                     </Flex>
                 </Box>
-                <Image src={img} mb={"2rem"}/>
+                <Image src={img} mb={"2rem"} alt=""/>
             </Box>
             <Heading mb={"0.4rem"}>{name}</Heading>
             <Text>{skills}</Text>
