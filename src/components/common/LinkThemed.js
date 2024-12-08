@@ -12,6 +12,7 @@ export default function LinkThemed({ children, bg, color, href }) {
                 borderColor={"green"}
                 pb={"0.6rem"}
                 fontWeight={700}
+                letterSpacing={3}
                 _hover={{
                     color: "green",
                 }}
