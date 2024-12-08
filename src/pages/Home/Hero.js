@@ -1,5 +1,6 @@
 import FlexDimension from "@/components/common/FlexDimension";
 import LinkThemed from "@/components/common/LinkThemed";
+import ScrollLinkThemed from "@/components/common/ScrollLinkThemed";
 import {
     Text,
     Box,
@@ -16,7 +17,7 @@ function Hero() {
     return (
         <Container maxW={"container.xl"} position={"relative"} height={"100vh"}>
             <FlexDimension justify={"flex-end"}>
-                <Image src="image-profile-desktop.webp" alt=""/>
+                <Image src="image-profile-desktop.jpg" alt=""/>
             </FlexDimension>
 
             <FlexDimension>
@@ -62,10 +63,14 @@ function Greeting() {
             
             <Text w={"60%"} mb={"4rem"}>
                 {
-                    "Based in MX, I'm a front-end developer passionate about building fast, efficient and visually appealing web apps that users love."
+                    "Based in MX, I'm a front-end developer passionate about building fast, efficient and visually appealing web pages for users to have a great experience on the internet."
                 }
             </Text>
-            <LinkThemed href={"#"}>CONTACT ME</LinkThemed>
+            <ScrollLinkThemed
+                href={"#footer"}
+            >
+                CONTACT ME
+            </ScrollLinkThemed>
         </VStack>
     );
 }

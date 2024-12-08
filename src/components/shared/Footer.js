@@ -3,10 +3,11 @@ import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import Divider from "../common/Divider";
 import InputThemed, { TextAreaThemed } from "../common/InputThemed";
 import LinkThemed from "../common/LinkThemed";
+import IconLink from "../common/IconLink";
 
 export default function Footer() {
     return (
-        <Box bg={"dark"} w={"100%"} py={"5rem"} position={"relative"}>
+        <Box bg={"dark"} w={"100%"} py={"5rem"} position={"relative"} id="footer">
             <Image
                 src="pattern-rings.svg"
                 height={"11rem"}
@@ -49,9 +50,15 @@ function Navigation() {
             <Heading fontSize={"1.6rem"} fontWeight={"700"}>eduardomeza</Heading>
 
             <HStack fontSize={"1.8rem"} spacing={"2rem"}>
-                <FaGithub />
-                <FaLinkedin />
-                <FaInstagram />
+                <IconLink href={"https://github.com/mezacanul"}>
+                    <FaGithub />
+                </IconLink>
+                <IconLink href={"https://www.linkedin.com/in/eduardo-meza-7b6a02194/"}>
+                    <FaLinkedin />
+                </IconLink>
+                {/* <IconLink href={"https://www.instagram.com/eduardomzcn/"}>
+                    <FaInstagram />
+                </IconLink> */}
             </HStack>
         </HStack>
     )

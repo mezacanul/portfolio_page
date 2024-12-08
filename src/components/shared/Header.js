@@ -1,5 +1,6 @@
 import { Box, Container, HStack, Heading } from "@chakra-ui/react"
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import IconLink from "../common/IconLink"
 
 
 export default function Header() {
@@ -9,10 +10,16 @@ export default function Header() {
                 <HStack justify={"space-between"} align={"center"}>
                     <Heading fontSize={"1.6rem"} fontWeight={"700"}>eduardomeza</Heading>
 
-                    <HStack fontSize={"1.8rem"} spacing={"2rem"} mr={"2rem"}>
-                        <FaGithub />
-                        <FaLinkedin />
-                        <FaInstagram />
+                    <HStack spacing={"2rem"} mr={"2rem"}>
+                        <IconLink href={"https://github.com/mezacanul"}>
+                            <FaGithub />
+                        </IconLink>
+                        <IconLink href={"https://www.linkedin.com/in/eduardo-meza-7b6a02194/"}>
+                            <FaLinkedin />
+                        </IconLink>
+                        {/* <IconLink href={"https://www.instagram.com/eduardomzcn/"}>
+                            <FaInstagram />
+                        </IconLink> */}
                     </HStack>
                 </HStack>
             </Container>

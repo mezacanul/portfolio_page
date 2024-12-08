@@ -1,4 +1,5 @@
 import LinkThemed from "@/components/common/LinkThemed";
+import ScrollLinkThemed from "@/components/common/ScrollLinkThemed";
 import { Box, Container, Flex, Heading, HStack, Image, Text, VStack } from "@chakra-ui/react";
 
 export default function Projects() {
@@ -6,7 +7,7 @@ export default function Projects() {
         <Container maxW={"container.xl"} py={"5rem"}>
             <HStack justify={"space-between"}>
                 <Heading fontSize={"xl"}>Projects</Heading>
-                <LinkThemed href={"#"}>CONTACT ME</LinkThemed>
+                <ScrollLinkThemed href={"#footer"} duration={600}>CONTACT ME</ScrollLinkThemed>
             </HStack>
 
             <VStack spacing={"6rem"} my={"5rem"}>
