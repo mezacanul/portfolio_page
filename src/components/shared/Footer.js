@@ -16,7 +16,7 @@ export default function Footer() {
                 left={"-20rem"}
                 alt=""
             />
-            <Container maxW={"95%"}>
+            <Container maxW={{base: "90%", xl: "85%"}}>
                 <Content />
                 <Divider mt={"6rem"} mb={"3rem"}/>
                 <Navigation/>

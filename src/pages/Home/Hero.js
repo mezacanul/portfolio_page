@@ -16,11 +16,13 @@ import {
 function Hero() {
     return (
         <Container
-            maxW={{base: "container.xl", md: "95%", xl: "container.xl"}}
+            // px={0}
+            maxW={{base: "90%", md: "90%", xl: "85%"}}
             position={"relative"}
             maxH={{ base: "100vh" }}
             minH={"100vh"}
             display={"flex"}
+            mb={["5rem", 0]}
         >
             <Flex flexDir={{ base: "column", md: "row" }} position={"relative"}>
                 <FlexDimension
@@ -49,6 +51,8 @@ function Hero() {
                     w={{md: "80%", lg: "100%"}}
                     height={"100%"}
                     pb={{md: "10rem", lg: "0"}}
+                    px={0}
+                    mt={["2rem", 0]}
                 >
                     <Greeting />
                 </FlexDimension>
@@ -61,7 +65,7 @@ function Hero() {
                     borderColor={"white"}
                     position={"absolute"}
                     bottom={"8rem"}
-                    right={{base: "0rem", md: "31rem", lg: "45rem", xl:"41rem"}}
+                    right={{base: "0rem", md: "31rem", lg: "45rem", xl:"19rem"}}
                 />
             </FlexDimension>
 
@@ -80,7 +84,7 @@ function Hero() {
 
 function Greeting() {
     return (
-        <VStack w={{ base: "100%", md: "90%", lg: "65%", xl: "70%" }} align={{base: "center", md: "flex-start"}}>
+        <VStack px={0} w={{ base: "100%", md: "90%", lg: "65%", xl: "70%" }} align={{base: "center", md: "flex-start"}}>
             {/* <Heading fontSize={{ base: "3rem", md: "xl" }} mb={"-0.5rem"} textAlign={"center"}>
                 Nice to meet you!
             </Heading> */}

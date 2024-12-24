@@ -14,7 +14,7 @@ import {
 
 export default function Projects() {
     return (
-        <Container maxW={{base: "90%", md: "85%", lg: "85%"}} py={"1rem"}>
+        <Container maxW={{base: "90%", md: "90%", xl: "85%"}} py={"1rem"}>
             <Flex flexDir={["column", "row"]} rowGap={"1.5rem"} justify={"space-between"} align={["flex-start", "center"]}>
                 <Heading fontSize={["lg", "xl"]}>Projects</Heading>
                 <ScrollLinkThemed href={"#footer"} duration={600}>
