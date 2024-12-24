@@ -109,7 +109,7 @@ function Project({ name, skills, img }) {
                 <Text>{skills}</Text>
             </VStack>
 
-            <HStack spacing={"2rem"}>
+            <HStack spacing={"2rem"} display={{base: "flex", xl: "none"}}>
                 <LinkThemed href={"#"} opacity={1}>
                     VIEW PROJECT
                 </LinkThemed>
