@@ -39,7 +39,6 @@ function Hero() {
                         w={{ base: "90%", md: "auto" }}
                         height={{base: "60vh", md: "100%", lg: "100%"}}
                         src="image-profile-desktop.jpg"
-                        alt=""
                         objectFit={"cover"}
                     />
                 </FlexDimension>
@@ -73,7 +72,6 @@ function Hero() {
                     position={"absolute"}
                     top={"11rem"}
                     left={["-34rem", "-30rem"]}
-                    alt=""
                 />
             </FlexDimension>
         </Container>
@@ -88,7 +86,7 @@ function Greeting() {
             </Heading> */}
 
             <Heading mb={{base: "2rem", xl: "3rem"}} fontSize={{ base: "2.5rem", md: "4rem", xl: "xl" }} textAlign={{base: "center", md: "left"}}>
-                Nice to meet you! I'm{" "}
+                {"Nice to meet you! I'm "}
                 <Heading fontSize={{base: "2.5rem", md: "4rem", xl: "xl"}} as={"b"} borderBottom={"8px"} borderColor={"green"}>
                     Eduardo Meza
                 </Heading>
