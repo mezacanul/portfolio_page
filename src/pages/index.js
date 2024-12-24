@@ -3,6 +3,7 @@ import Head from "next/head";
 import Hero from "./Home/Hero"
 import Skills from "./Home/Skills";
 import Projects from "./Home/Projects";
+import { Box } from "@chakra-ui/react";
 
 export default function Index() {
     return (
@@ -11,9 +12,11 @@ export default function Index() {
           <title>Eduardo Meza</title>
         </Head>
 
-        <Hero />
-        <Skills />
-        <Projects />
+        <Box overflowX={"hidden"}>
+          <Hero />
+          <Skills />
+          <Projects />
+        </Box>
       </>
     )
 }

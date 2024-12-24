@@ -11,14 +11,19 @@ export default function SectionLayout({
     backdropOpacity,
     ...props
 }) {
-
     return (
         <Box bg={bg} py={py} color={color} position={"relative"} {...props}>
             {backdrop && (
-                <Box w={"100%"} h={"100%"}
-                    position={"absolute"} top={0} left={0}
-                    bg={backdropColor} opacity={backdropOpacity}
-                    bgSize={"cover"} bgPos={"center"}
+                <Box
+                    w={"100%"}
+                    h={"100%"}
+                    position={"absolute"}
+                    top={0}
+                    left={0}
+                    bg={backdropColor}
+                    opacity={backdropOpacity}
+                    bgSize={"cover"}
+                    bgPos={"center"}
                 />
             )}
             <Container maxW={maxW} zIndex={5} position={"relative"}>
