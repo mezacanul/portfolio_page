@@ -14,6 +14,7 @@ import NotFound from "@/components/NotFound";
 
 export default function ProjectPage() {
     const router = useRouter();
+    const [loading, setLoading] = useState(true);
     const { project } = router.query; // "myproject", "client-portal", etc.
     const [projectData, setProjectData] = useState(null);
 
@@ -24,11 +25,12 @@ export default function ProjectPage() {
                 .then((response) => {
                     console.log(response);
                     setProjectData(response.data);
+                    setLoading(false);
                 });
         }
     }, [project]);
 
-    if (!projectData) {
+    if (!projectData && !loading) {
         return <NotFound />;
     }
 
@@ -59,11 +61,11 @@ function Hero({ project }) {
             />
             <VStack
                 justify={"center"}
-                align={"flex-end"}
+                align={"center"}
                 h={"100%"}
             >
-                <VStack align={"flex-end"} mt={"-10vh"}>
-                    <Heading size={"2xl"}>
+                <VStack mt={"-10vh"}>
+                    <Heading size={"2xl"} textAlign={"center"}>
                         {project.name}
                     </Heading>
                     <Text
@@ -74,7 +76,7 @@ function Hero({ project }) {
                         {project.skills}
                     </Text>
                     <Text
-                        textAlign={"end"}
+                        textAlign={"center"}
                         fontSize={"1rem"}
                         mt={"1rem"}
                     >

@@ -12,7 +12,7 @@ import {
     VStack,
 } from "@chakra-ui/react";
 
-export default function Projects() {
+export default function Projects({ projects }) {
     return (
         <Container
             // maxW={{ base: "90%", md: "90%", xl: "85%" }}
@@ -42,7 +42,7 @@ export default function Projects() {
                 rowGap={{ base: "4rem", lg: "6rem" }}
                 my={"5rem"}
             >
-                {projectsArr.map((project) => (
+                {projects.map((project) => (
                     <Project
                         key={project.name}
                         project={project}
@@ -62,7 +62,7 @@ function Project({ project }) {
         visibility = "public",
         url,
         code,
-        align
+        align,
     } = project;
     return (
         <Box
@@ -95,14 +95,17 @@ function Project({ project }) {
 
             <HStack
                 spacing={"2rem"}
+                justify={"space-between"}
                 display={{ base: "flex", xl: "none" }}
             >
-                <LinkThemed href={"#"} opacity={1}>
+                <LinkThemed href={url} opacity={1}>
                     {"VIEW PROJECT"}
                 </LinkThemed>
-                <LinkThemed href={"#"} opacity={1}>
-                    {"VIEW CODE"}
-                </LinkThemed>
+                {code && (
+                    <LinkThemed href={code} opacity={1}>
+                        {"VIEW CODE"}
+                    </LinkThemed>
+                )}
             </HStack>
         </Box>
     );
@@ -111,7 +114,7 @@ function Project({ project }) {
 function TitleAndSkills({ name, skills }) {
     return (
         <VStack align={"flex-start"} mb={"2rem"}>
-            <Heading fontSize={"2rem"} mb={"0.4rem"}>
+            <Heading fontSize={"2rem"}>
                 {name}
             </Heading>
             <Text
