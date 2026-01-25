@@ -1,7 +1,15 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 export default function handler(req, res) {
-    res.status(200).json({ name: "John Doe" });
+    const { id = null } = req.query;
+    if (id) {
+        const project = projectsArr.find(
+            (project) => project.id === id
+        );
+        res.status(200).json(project);
+    } else {
+        res.status(200).json(projectsArr);
+    }
 }
 
 const projectsArr = [
@@ -16,7 +24,7 @@ const projectsArr = [
         align: "right",
     },
     {
-        id: "hadassa-lash-studio",
+        id: "hadassa",
         name: "Hadassa Lash Studio",
         skills: "React - Next.js - Chakra UI",
         img: "thumbnail-project-3-large.webp",
@@ -25,7 +33,7 @@ const projectsArr = [
         code: "https://github.com/EduardoMeza97/hadassa-lash-studio",
     },
     {
-        id: "grupo-sol-advertising",
+        id: "grupo-sol",
         name: "Grupo SOL Advertising",
         skills: "React Native - Bootstrap",
         img: "thumbnail-project-3-large.webp",
