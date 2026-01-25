@@ -1,5 +1,12 @@
 import { useRouter } from "next/router";
-import { Box, Heading } from "@chakra-ui/react";
+import {
+    Box,
+    Heading,
+    HStack,
+    Image,
+    VStack,
+    Text,
+} from "@chakra-ui/react";
 
 export default function ProjectPage() {
     const router = useRouter();
@@ -7,8 +14,20 @@ export default function ProjectPage() {
 
     return (
         <Box>
-            <Heading>Project: {project}</Heading>
-            {/* your page content */}
+            <Hero />
+            <Content />
         </Box>
+    );
+}
+
+function Hero() {
+    return (
+        <HStack>
+            <Image src={project.image} alt={project.name} />
+            <VStack>
+                <Heading>{project.name}</Heading>
+                <Text>{project.description}</Text>
+            </VStack>
+        </HStack>
     );
 }
