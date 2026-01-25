@@ -1,8 +1,8 @@
-import Test from "./Test";
+import Test from "../components/test";
 import Head from "next/head";
-import Hero from "./Home/Hero"
-import Skills from "./Home/Skills";
-import Projects from "./Home/Projects";
+import Hero from "../components/Home/Hero"
+import Skills from "../components/Home/Skills";
+import Projects from "../components/Home/Projects";
 import { Box } from "@chakra-ui/react";
 
 export default function Index() {
