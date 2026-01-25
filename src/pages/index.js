@@ -1,22 +1,24 @@
-import Test from "./Test";
-import Head from "next/head";
-import Hero from "./Home/Hero"
-import Skills from "./Home/Skills";
-import Projects from "./Home/Projects";
+import Test from "../components/test";
+import Hero from "../components/Home/Hero";
+import Skills from "../components/Home/Skills";
+import Projects from "../components/Home/Projects";
 import { Box } from "@chakra-ui/react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 export default function Index() {
-    return (
-      <>
-        <Head>
-          <title>Eduardo Meza</title>
-        </Head>
+    const [projects, setProjects] = useState([]);
+    useEffect(() => {
+        axios.get("/api/projects").then((response) => {
+            setProjects(response.data);
+        });
+    }, []);
 
+    return (
         <Box overflowX={"hidden"}>
-          <Hero />
-          <Skills />
-          <Projects />
+            <Hero />
+            <Skills />
+            <Projects projects={projects} />
         </Box>
-      </>
-    )
+    );
 }
