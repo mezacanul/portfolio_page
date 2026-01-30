@@ -24,6 +24,7 @@ export default function Projects({
             w={"100%"}
             py={"5rem"}
             zIndex={zIndex}
+            position={"relative"}
         >
             <Flex
                 flexDir={["column", "row"]}

@@ -58,6 +58,7 @@ export default function App({
 function Main({ Component, pageProps, router }) {
     const dispatch = useDispatch();
     const cmsData = useSelector((state) => state.cms);
+    const pathname = router.pathname;
 
     useEffect(() => {
         const currentRegion = getCurrentRegion(navigator);
@@ -71,12 +72,7 @@ function Main({ Component, pageProps, router }) {
                 }, 1000);
             });
     }, []);
-
-    useEffect(() => {
-        // console.log(cmsData);
-    }, [cmsData]);
-
-    // return <LoaderFullWidth />;
+    
     if (!cmsData) {
         return <LoaderFullWidth />;
     }
@@ -106,9 +102,17 @@ function Main({ Component, pageProps, router }) {
                 />
             </Box>
             <Footer />
+            
+            {pathname === "/" && <AbsoluteImages />}
+        </main>
+    );
+}
 
+function AbsoluteImages() {
+    return (
+        <>
             <ImageAbsolute
-                img={"lines"}
+                type={"lines"}
                 location={{
                     top: "10rem",
                     right: "initial",
@@ -119,7 +123,7 @@ function Main({ Component, pageProps, router }) {
             />
 
             <ImageAbsolute
-                img={"lines"}
+                type={"lines"}
                 location={{
                     top: "160vh",
                     right: "-15rem",
@@ -128,6 +132,17 @@ function Main({ Component, pageProps, router }) {
                 }}
                 height={"10rem"}
             />
-        </main>
+
+            <ImageAbsolute
+                type={"circle"}
+                location={{
+                    top: "260vh",
+                    right: "-6rem",
+                    bottom: "initial",
+                    left: "initial",
+                }}
+                height={"25rem"}
+            />
+        </>
     );
 }
