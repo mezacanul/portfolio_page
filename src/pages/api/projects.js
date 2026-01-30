@@ -22,6 +22,28 @@ const projectsArr = [
         visibility: "private",
         url: "/projects/siapsez",
         align: "right",
+        content: [
+            {
+                img: "img/siapsez-1.jpg",
+                description:
+                    "SIAPSEZ is a web application for the SIAPSEZ company. It is a system for managing the company's projects and tasks.",
+            },
+            {
+                img: "img/siapsez-2.jpg",
+                description:
+                    "SIAPSEZ is a web application for the SIAPSEZ company. It is a system for managing the company's projects and tasks.",
+            },
+            {
+                img: "img/siapsez-3.jpg",
+                description:
+                    "SIAPSEZ is a web application for the SIAPSEZ company. It is a system for managing the company's projects and tasks.",
+            },
+            {
+                img: "img/siapsez-4.jpg",
+                description:
+                    "SIAPSEZ is a web application for the SIAPSEZ company. It is a system for managing the company's projects and tasks.",
+            },
+        ],
     },
     {
         id: "hadassa",
@@ -30,7 +52,9 @@ const projectsArr = [
         img: "thumbnail-project-3-large.webp",
         type: "about",
         url: "/projects/hadassa",
-        code: "https://github.com/EduardoMeza97/hadassa-lash-studio",
+        visibility: "private",
+        // code: "https://github.com/EduardoMeza97/hadassa-lash-studio",
+        content: []
     },
     {
         id: "grupo-sol",
@@ -40,6 +64,7 @@ const projectsArr = [
         type: "about",
         url: "/projects/grupo-sol",
         code: "https://github.com/EduardoMeza97/grupo-sol-advertising",
+        content: []
     },
     {
         id: "planets",
@@ -49,6 +74,7 @@ const projectsArr = [
         type: "demo",
         url: "/projects/planets",
         code: "https://github.com/EduardoMeza97/planets",
+        content: []
     },
     {
         id: "real-time-chatbot",
@@ -58,6 +84,7 @@ const projectsArr = [
         type: "demo",
         url: "/projects/real-time-chatbot",
         code: "https://github.com/EduardoMeza97/real-time-chatbot",
+        content: []
     },
     {
         id: "lattice-design",
@@ -67,5 +94,6 @@ const projectsArr = [
         type: "demo",
         url: "/projects/lattice-design",
         code: "https://github.com/EduardoMeza97/lattice-design",
+        content: []
     },
 ];

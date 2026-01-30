@@ -97,6 +97,7 @@ function Hero() {
 
             <FlexDimension>
                 <Image
+                    zIndex={10}
                     src="pattern-rings.svg"
                     height={"10rem"}
                     position={"absolute"}
@@ -146,7 +147,7 @@ function Greeting() {
                 >
                     {"Eduardo Meza"}
                 </Heading>
-                .
+                {"."}
             </Heading>
 
             {/* <HStack align={"flex-start"} w={"100%"}>
