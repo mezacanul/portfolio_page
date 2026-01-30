@@ -21,6 +21,7 @@ import store from "@/app/store";
 import { injectCMSData } from "@/features/cmsSlice";
 import { setRegion } from "@/features/regionSlice";
 import LoaderFullWidth from "@/components/common/LoaderFullWidth";
+import ImageAbsolute from "@/components/common/ImageAbsolute";
 
 const titles = {
     "/": "Home",
@@ -66,13 +67,13 @@ function Main({ Component, pageProps, router }) {
             .then((response) => {
                 setTimeout(() => {
                     dispatch(injectCMSData(response.data));
-                    console.log(response.data);
+                    // console.log(response.data);
                 }, 1000);
             });
     }, []);
 
     useEffect(() => {
-        console.log(cmsData);
+        // console.log(cmsData);
     }, [cmsData]);
 
     // return <LoaderFullWidth />;
@@ -81,7 +82,12 @@ function Main({ Component, pageProps, router }) {
     }
 
     return (
-        <main style={{ position: "relative" }}>
+        <main
+            style={{
+                position: "relative",
+                overflowX: "hidden",
+            }}
+        >
             <Header />
             <Box
                 minH={"100vh"}
@@ -100,6 +106,28 @@ function Main({ Component, pageProps, router }) {
                 />
             </Box>
             <Footer />
+
+            <ImageAbsolute
+                img={"lines"}
+                location={{
+                    top: "10rem",
+                    right: "initial",
+                    bottom: "initial",
+                    left: "-15rem",
+                }}
+                height={"10rem"}
+            />
+
+            <ImageAbsolute
+                img={"lines"}
+                location={{
+                    top: "160vh",
+                    right: "-15rem",
+                    bottom: "initial",
+                    left: "initial",
+                }}
+                height={"10rem"}
+            />
         </main>
     );
 }

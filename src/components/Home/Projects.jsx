@@ -12,12 +12,18 @@ import {
     VStack,
 } from "@chakra-ui/react";
 
-export default function Projects({ projects }) {
+export default function Projects({
+    projects,
+    cms,
+    zIndex,
+}) {
     return (
-        <Container
+        <Box
             // maxW={{ base: "90%", md: "90%", xl: "85%" }}
             maxW={["100%"]}
-            py={"1rem"}
+            w={"100%"}
+            py={"5rem"}
+            zIndex={zIndex}
         >
             <Flex
                 flexDir={["column", "row"]}
@@ -25,15 +31,15 @@ export default function Projects({ projects }) {
                 justify={"space-between"}
                 align={["flex-start", "center"]}
             >
-                <Heading fontSize={["lg", "xl"]}>
-                    {"Projects"}
+                <Heading fontSize={"xl"}>
+                    {cms.title}
                 </Heading>
-                <ScrollLinkThemed
+                {/* <ScrollLinkThemed
                     href={"#footer"}
                     duration={600}
                 >
                     {"CONTACT ME"}
-                </ScrollLinkThemed>
+                </ScrollLinkThemed> */}
             </Flex>
 
             <SimpleGrid
@@ -46,14 +52,15 @@ export default function Projects({ projects }) {
                     <Project
                         key={project.name}
                         project={project}
+                        cms={cms}
                     />
                 ))}
             </SimpleGrid>
-        </Container>
+        </Box>
     );
 }
 
-function Project({ project }) {
+function Project({ project, cms }) {
     const {
         name,
         skills,
@@ -78,6 +85,7 @@ function Project({ project }) {
                     code={code}
                     type={type}
                     visibility={visibility}
+                    cms={cms}
                 />
 
                 <Image
@@ -99,11 +107,11 @@ function Project({ project }) {
                 display={{ base: "flex", xl: "none" }}
             >
                 <LinkThemed href={url} opacity={1}>
-                    {"VIEW PROJECT"}
+                    {cms.buttons.demo}
                 </LinkThemed>
                 {code && (
                     <LinkThemed href={code} opacity={1}>
-                        {"VIEW CODE"}
+                        {cms.buttons.code}
                     </LinkThemed>
                 )}
             </HStack>
@@ -114,9 +122,7 @@ function Project({ project }) {
 function TitleAndSkills({ name, skills }) {
     return (
         <VStack align={"flex-start"} mb={"2rem"}>
-            <Heading fontSize={"2rem"}>
-                {name}
-            </Heading>
+            <Heading fontSize={"2rem"}>{name}</Heading>
             <Text
                 color={"green"}
                 fontSize={"1rem"}
@@ -133,6 +139,7 @@ function OverlayAndButtons({
     code,
     type,
     visibility,
+    cms,
 }) {
     return (
         <Box
@@ -161,12 +168,12 @@ function OverlayAndButtons({
                 <VStack spacing={"2rem"}>
                     <LinkThemed href={url} opacity={1}>
                         {type === "about"
-                            ? "ABOUT PROJECT"
-                            : "VIEW DEMO"}
+                            ? cms.buttons.about
+                            : cms.buttons.demo}
                     </LinkThemed>
                     {visibility === "public" && (
                         <LinkThemed href={code} opacity={1}>
-                            {"VIEW CODE"}
+                            {cms.buttons.code}
                         </LinkThemed>
                     )}
                 </VStack>

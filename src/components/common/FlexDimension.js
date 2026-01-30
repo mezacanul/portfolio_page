@@ -9,7 +9,7 @@ export default function FlexDimension({
         <Flex
             position={"absolute"}
             w={"container.xl"}
-            px={"1rem"}
+            // px={"1rem"}
             h={"100%"}
             {...props}
             top={0}
