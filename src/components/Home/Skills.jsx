@@ -13,29 +13,13 @@ import {
 } from "@chakra-ui/react";
 import { useMemo } from "react";
 
-const skillsArr = [
-    { title: "React.js", experience: 2 },
-    { title: "Next.js", experience: 2 },
-    { title: "Redux", experience: 2 },
-    { title: "Typescript", experience: 2 },
-    { title: "MySQL", experience: 4 },
-    { title: "Node.js", experience: 1 },
-    { title: "Express.js", experience: 1 },
-    { title: "REST API", experience: 4 },
-    { title: "CI/CD", experience: 1 },
-    { title: "SSR", experience: 1 },
-    { title: "SEO", experience: 1 },
-    { title: "HTML", experience: 6 },
-    { title: "CSS", experience: 6 },
-    { title: "Javascript", experience: 6 },
-    { title: "Python", experience: 2 },
-];
 
 export default function Skills({ cms, zIndex }) {
+    const { title, skills, span } = cms;
     return (
         <Box pt={"10rem"} zIndex={zIndex}>
             <Heading fontSize={"xl"} mb={"2rem"}>
-                {cms.title}
+                {title}
             </Heading>
             <Flex justify={"center"} maxW={["100%"]}>
                 <Box
@@ -59,13 +43,13 @@ export default function Skills({ cms, zIndex }) {
                             xl: 4,
                         }}
                     >
-                        {skillsArr.map((skill) => (
+                        {skills.map((skill) => (
                             <Skill
                                 experience={
                                     skill.experience
                                 }
                                 key={skill.title}
-                                cms={cms}
+                                span={span}
                             >
                                 {skill.title}
                             </Skill>
@@ -98,12 +82,12 @@ export default function Skills({ cms, zIndex }) {
     );
 }
 
-function Skill({ children, experience, cms }) {
+function Skill({ children, experience, span }) {
     const experienceText = useMemo(() => {
-        return `${experience} ${cms.span}${
+        return `${experience} ${span}${
             experience > 1 ? "s" : ""
         }`;
-    }, [experience, cms.span]);
+    }, [experience, span]);
 
     return (
         <VStack

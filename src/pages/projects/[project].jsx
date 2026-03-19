@@ -42,7 +42,7 @@ export default function ProjectPage() {
                 <>
                     <Hero project={projectData} />
                     <Content
-                        content={projectData.content}
+                        content={projectData.content.data}
                     />
                     <BackToHome />
                 </>
@@ -92,7 +92,7 @@ function Content({ content }) {
                     >
                         <Image
                             w={"50%"}
-                            src={`/${item.img}`}
+                            src={item.img}
                             alt={item.description}
                         />
                         <VStack
@@ -148,7 +148,7 @@ function Hero({ project }) {
                 bg={"green"}
             />
             <Image
-                src={`/${project.img}`}
+                src={project.img}
                 alt={project.name}
                 w={"100%"}
                 // w={"70vh"}
@@ -182,9 +182,7 @@ function Hero({ project }) {
                         fontSize={"1rem"}
                         mt={"1rem"}
                     >
-                        {
-                            "An ERP system for the public sector in Mexico"
-                        }
+                        {project.content.description}
                     </Text>
                 </VStack>
             </VStack>

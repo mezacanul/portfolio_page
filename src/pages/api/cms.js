@@ -1,20 +1,42 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+const language_map = {
+    en: ["US", "CA", "UK", "AU", "NZ"],
+    es: ["MX", "CO", "ES", "AR", "CL"],
+};
 
 export default function handler(req, res) {
     const { region } = req.query;
-    const regions_map = {
-        en: ["US", "CA", "UK", "AU", "NZ"],
-        es: ["MX", "CO", "ES", "AR", "CL"],
-    };
-    const language = regions_map["en"].includes(region)
+    const language = language_map["en"].includes(region)
         ? "en"
-        : regions_map["es"].includes(region)
+        : language_map["es"].includes(region)
         ? "es"
         : "en";
 
     console.log("cms data", CMS_DATA[language]);
     res.status(200).json(CMS_DATA[language]);
 }
+
+const skillsArr = [
+    { title: "React.js", experience: 5 },
+    { title: "Next.js", experience: 4 },
+    { title: "TypeScript", experience: 3 },
+    { title: "Tailwind CSS", experience: 4 },
+    { title: "Redux", experience: 4 },
+    { title: "Express.js", experience: 2 },
+    { title: "MySQL", experience: 5 },
+    { title: "MongoDB", experience: 2 },
+    { title: "Node.js", experience: 2 },
+    { title: "React Native", experience: 1 },
+    // { title: "Expo", experience: 1 },
+    { title: "REST API", experience: 5 },
+    { title: "CI/CD", experience: 3 },
+    { title: "CSR/SSR", experience: 2 },
+    // { title: "SSG/ISR", experience: 2 },
+    { title: "HTML", experience: 6 },
+    { title: "CSS", experience: 6 },
+    { title: "Javascript", experience: 6 },
+    // { title: "Python", experience: 2 },
+];
 
 const CMS_DATA = {
     en: {
@@ -28,8 +50,9 @@ const CMS_DATA = {
                 button: "CONTACT ME",
             },
             skills: {
-                title: "My Stack",
+                title: "Technical Skills",
                 span: "Year",
+                skills: skillsArr,
             },
             projects: {
                 title: "My Projects",

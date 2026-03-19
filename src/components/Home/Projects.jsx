@@ -26,28 +26,29 @@ export default function Projects({
             zIndex={zIndex}
             position={"relative"}
         >
-            <Flex
-                flexDir={["column", "row"]}
-                rowGap={"1.5rem"}
-                justify={"space-between"}
-                align={["flex-start", "center"]}
+            <Heading
+                fontSize={{
+                    base: "3rem",
+                    lg: "4rem",
+                    xl: "5rem",
+                }}
             >
-                <Heading fontSize={"xl"}>
-                    {cms.title}
-                </Heading>
-                {/* <ScrollLinkThemed
-                    href={"#footer"}
-                    duration={600}
-                >
-                    {"CONTACT ME"}
-                </ScrollLinkThemed> */}
-            </Flex>
+                {cms.title}
+            </Heading>
 
             <SimpleGrid
                 columns={[1, 2]}
-                columnGap={"10rem"}
-                rowGap={{ base: "4rem", lg: "6rem" }}
-                my={"5rem"}
+                gap={{
+                    base: "3rem",
+                    lg: "5rem",
+                    xl: "7rem",
+                }}
+                rowGap={{
+                    base: "3rem",
+                    lg: "4rem",
+                    xl: "4rem",
+                }}
+                my={"3rem"}
             >
                 {projects.map((project) => (
                     <Project
@@ -61,17 +62,7 @@ export default function Projects({
     );
 }
 
-function Project({ project, cms }) {
-    const {
-        name,
-        skills,
-        img,
-        type,
-        visibility = "public",
-        url,
-        code,
-        align,
-    } = project;
+function Project({ project }) {
     return (
         <Box
             _hover={{
@@ -81,39 +72,52 @@ function Project({ project, cms }) {
             }}
         >
             <Box position={"relative"}>
-                <OverlayAndButtons
-                    url={url}
-                    code={code}
-                    type={type}
-                    visibility={visibility}
-                    cms={cms}
-                />
+                <OverlayAndButtons project={project} />
 
                 <Image
                     h={"40vh"}
                     w={"100%"}
-                    align={align || "center"}
+                    // align={project.align || "center"}
+                    objectPosition={
+                        project.align || "center top"
+                    }
                     objectFit={"cover"}
-                    src={img}
+                    src={project.img}
                     mb={"2rem"}
-                    alt=""
                 />
             </Box>
 
-            <TitleAndSkills name={name} skills={skills} />
+            <TitleAndSkills
+                name={project.name}
+                skills={project.skills}
+            />
 
             <HStack
                 spacing={"2rem"}
-                justify={"space-between"}
                 display={{ base: "flex", xl: "none" }}
             >
-                <LinkThemed href={url} opacity={1}>
-                    {cms.buttons.demo}
-                </LinkThemed>
-                {code && (
-                    <LinkThemed href={code} opacity={1}>
-                        {cms.buttons.code}
+                {project.type === "about" && (
+                    <LinkThemed
+                        href={`/projects/${project.id}`}
+                    >
+                        {"ABOUT"}
                     </LinkThemed>
+                )}
+                {project.type === "preview" && (
+                    <>
+                        <LinkThemed
+                            href={project.url}
+                            target="_blank"
+                        >
+                            {"PREVIEW"}
+                        </LinkThemed>
+                        <LinkThemed
+                            href={project.code}
+                            target="_blank"
+                        >
+                            {"CODE"}
+                        </LinkThemed>
+                    </>
                 )}
             </HStack>
         </Box>
@@ -135,13 +139,7 @@ function TitleAndSkills({ name, skills }) {
     );
 }
 
-function OverlayAndButtons({
-    url,
-    code,
-    type,
-    visibility,
-    cms,
-}) {
+function OverlayAndButtons({ project }) {
     return (
         <Box
             display={{ base: "none", xl: "block" }}
@@ -167,15 +165,29 @@ function OverlayAndButtons({
                 justify={"center"}
             >
                 <VStack spacing={"2rem"}>
-                    <LinkThemed href={url} opacity={1}>
-                        {type === "about"
-                            ? cms.buttons.about
-                            : cms.buttons.demo}
-                    </LinkThemed>
-                    {visibility === "public" && (
-                        <LinkThemed href={code} opacity={1}>
-                            {cms.buttons.code}
+                    {project.type === "about" && (
+                        <LinkThemed
+                            href={`/projects/${project.id}`}
+                            opacity={1}
+                        >
+                            {"ABOUT"}
                         </LinkThemed>
+                    )}
+                    {project.type === "preview" && (
+                        <>
+                            <LinkThemed
+                                href={project.url}
+                                opacity={1}
+                            >
+                                {"PREVIEW"}
+                            </LinkThemed>
+                            <LinkThemed
+                                href={project.code}
+                                opacity={1}
+                            >
+                                {"CODE"}
+                            </LinkThemed>
+                        </>
                     )}
                 </VStack>
             </Flex>
