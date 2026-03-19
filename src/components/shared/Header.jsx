@@ -27,7 +27,7 @@ export default function Header() {
             left={0}
             top={0}
             w={"100%"}
-            zIndex={10}
+            zIndex={100}
             backgroundColor={"transparent"}
             bg={scrolling ? "dark" : "transparent"} // Transition between colors
             // color={

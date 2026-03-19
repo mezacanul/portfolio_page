@@ -13,17 +13,19 @@ import {
     Container,
 } from "@chakra-ui/react";
 
-function Hero() {
+function Hero({ cms, zIndex }) {
     return (
-        <Container
+        <Box
             // px={0}
             mt={"-11vh"}
             maxW={["100%"]}
+            w={"100%"}
             position={"relative"}
             maxH={{ base: "100vh" }}
             minH={"100vh"}
             display={"flex"}
             mb={["5rem", 0]}
+            zIndex={zIndex}
         >
             <Flex
                 flexDir={{ base: "column", md: "row" }}
@@ -75,11 +77,11 @@ function Hero() {
                     px={0}
                     mt={["2rem", 0]}
                 >
-                    <Greeting />
+                    <Greeting cms={cms} />
                 </FlexDimension>
             </Flex>
 
-            <FlexDimension>
+            {/* <FlexDimension>
                 <Circle
                     size={"8rem"}
                     borderWidth={2}
@@ -93,22 +95,23 @@ function Hero() {
                         xl: "19rem",
                     }}
                 />
-            </FlexDimension>
+            </FlexDimension> */}
 
-            <FlexDimension>
+            {/* <FlexDimension>
                 <Image
+                    zIndex={10}
                     src="pattern-rings.svg"
                     height={"10rem"}
                     position={"absolute"}
                     top={"11rem"}
                     left={["-34rem", "-30rem"]}
                 />
-            </FlexDimension>
-        </Container>
+            </FlexDimension> */}
+        </Box>
     );
 }
 
-function Greeting() {
+function Greeting({ cms }) {
     return (
         <VStack
             px={0}
@@ -120,9 +123,17 @@ function Greeting() {
             }}
             align={{ base: "center", md: "flex-start" }}
         >
-            {/* <Heading fontSize={{ base: "3rem", md: "xl" }} mb={"-0.5rem"} textAlign={"center"}>
-                Nice to meet you!
-            </Heading> */}
+            <Heading
+                fontSize={{
+                    base: "2.5rem",
+                    md: "4rem",
+                    xl: "4.5rem",
+                }}
+                mb={"-0.5rem"}
+                textAlign={"center"}
+            >
+                {"Nice to meet you!"}
+            </Heading>
 
             <Heading
                 mb={{ base: "2rem", xl: "3rem" }}
@@ -133,7 +144,7 @@ function Greeting() {
                 }}
                 textAlign={{ base: "center", md: "left" }}
             >
-                {"Nice to meet you! I'm "}
+                {cms.subject}
                 <Heading
                     fontSize={{
                         base: "2.5rem",
@@ -144,47 +155,22 @@ function Greeting() {
                     borderBottom={"8px"}
                     borderColor={"green"}
                 >
-                    {"Eduardo Meza"}
+                    {cms.name}
                 </Heading>
-                .
+                {"."}
             </Heading>
 
-            {/* <HStack align={"flex-start"} w={"100%"}>
-                <Heading fontSize={{base: "3rem", md: "xl"}} mb={"2rem"} me={"1rem"}>
-                    {"I'm "}
-                </Heading>
-                <Heading
-                    fontSize={{base: "3rem", md: "xl"}}
-                    mb={"2rem"}
-                    display={"inline"}
-                    borderBottom={"8px"}
-                    borderColor={"green"}
-                >
-                    Eduardo Meza
-                </Heading>
-                <Heading
-                    fontSize={"xl"}
-                    alignSelf={"flex-end"}
-                    pb={"2.4rem"}
-                    ml={"-0.5rem"}
-                >
-                    {"."}
-                </Heading>
-            </HStack> */}
-
             <Text
-                w={{ base: "100%", md: "75%", xl: "60%" }}
+                w={{ base: "100%", md: "80%", xl: "70%" }}
                 mb={{ base: "2rem", xl: "4rem" }}
                 textAlign={{ base: "center", md: "left" }}
                 fontSize={"1.2rem"}
                 fontWeight={300}
             >
-                {
-                    "Based in MX, I'm a front-end developer passionate about building fast, efficient and visually appealing web pages for users to have a great experience on the internet."
-                }
+                {cms.description}
             </Text>
             <ScrollLinkThemed href={"#footer"}>
-                {"CONTACT ME"}
+                {cms.button}
             </ScrollLinkThemed>
         </VStack>
     );

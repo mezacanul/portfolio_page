@@ -12,58 +12,57 @@ import {
     VStack,
 } from "@chakra-ui/react";
 
-export default function Projects({ projects }) {
+export default function Projects({
+    projects,
+    cms,
+    zIndex,
+}) {
     return (
-        <Container
+        <Box
             // maxW={{ base: "90%", md: "90%", xl: "85%" }}
             maxW={["100%"]}
-            py={"1rem"}
+            w={"100%"}
+            py={"5rem"}
+            zIndex={zIndex}
+            position={"relative"}
         >
-            <Flex
-                flexDir={["column", "row"]}
-                rowGap={"1.5rem"}
-                justify={"space-between"}
-                align={["flex-start", "center"]}
+            <Heading
+                fontSize={{
+                    base: "3rem",
+                    lg: "4rem",
+                    xl: "5rem",
+                }}
             >
-                <Heading fontSize={["lg", "xl"]}>
-                    {"Projects"}
-                </Heading>
-                <ScrollLinkThemed
-                    href={"#footer"}
-                    duration={600}
-                >
-                    {"CONTACT ME"}
-                </ScrollLinkThemed>
-            </Flex>
+                {cms.title}
+            </Heading>
 
             <SimpleGrid
                 columns={[1, 2]}
-                columnGap={"10rem"}
-                rowGap={{ base: "4rem", lg: "6rem" }}
-                my={"5rem"}
+                gap={{
+                    base: "3rem",
+                    lg: "5rem",
+                    xl: "7rem",
+                }}
+                rowGap={{
+                    base: "3rem",
+                    lg: "4rem",
+                    xl: "4rem",
+                }}
+                my={"3rem"}
             >
                 {projects.map((project) => (
                     <Project
                         key={project.name}
                         project={project}
+                        cms={cms}
                     />
                 ))}
             </SimpleGrid>
-        </Container>
+        </Box>
     );
 }
 
 function Project({ project }) {
-    const {
-        name,
-        skills,
-        img,
-        type,
-        visibility = "public",
-        url,
-        code,
-        align,
-    } = project;
     return (
         <Box
             _hover={{
@@ -73,38 +72,52 @@ function Project({ project }) {
             }}
         >
             <Box position={"relative"}>
-                <OverlayAndButtons
-                    url={url}
-                    code={code}
-                    type={type}
-                    visibility={visibility}
-                />
+                <OverlayAndButtons project={project} />
 
                 <Image
                     h={"40vh"}
                     w={"100%"}
-                    align={align || "center"}
+                    // align={project.align || "center"}
+                    objectPosition={
+                        project.align || "center top"
+                    }
                     objectFit={"cover"}
-                    src={img}
+                    src={project.img}
                     mb={"2rem"}
-                    alt=""
                 />
             </Box>
 
-            <TitleAndSkills name={name} skills={skills} />
+            <TitleAndSkills
+                name={project.name}
+                skills={project.skills}
+            />
 
             <HStack
                 spacing={"2rem"}
-                justify={"space-between"}
                 display={{ base: "flex", xl: "none" }}
             >
-                <LinkThemed href={url} opacity={1}>
-                    {"VIEW PROJECT"}
-                </LinkThemed>
-                {code && (
-                    <LinkThemed href={code} opacity={1}>
-                        {"VIEW CODE"}
+                {project.type === "about" && (
+                    <LinkThemed
+                        href={`/projects/${project.id}`}
+                    >
+                        {"ABOUT"}
                     </LinkThemed>
+                )}
+                {project.type === "preview" && (
+                    <>
+                        <LinkThemed
+                            href={project.url}
+                            target="_blank"
+                        >
+                            {"PREVIEW"}
+                        </LinkThemed>
+                        <LinkThemed
+                            href={project.code}
+                            target="_blank"
+                        >
+                            {"CODE"}
+                        </LinkThemed>
+                    </>
                 )}
             </HStack>
         </Box>
@@ -114,9 +127,7 @@ function Project({ project }) {
 function TitleAndSkills({ name, skills }) {
     return (
         <VStack align={"flex-start"} mb={"2rem"}>
-            <Heading fontSize={"2rem"}>
-                {name}
-            </Heading>
+            <Heading fontSize={"2rem"}>{name}</Heading>
             <Text
                 color={"green"}
                 fontSize={"1rem"}
@@ -128,12 +139,7 @@ function TitleAndSkills({ name, skills }) {
     );
 }
 
-function OverlayAndButtons({
-    url,
-    code,
-    type,
-    visibility,
-}) {
+function OverlayAndButtons({ project }) {
     return (
         <Box
             display={{ base: "none", xl: "block" }}
@@ -159,15 +165,29 @@ function OverlayAndButtons({
                 justify={"center"}
             >
                 <VStack spacing={"2rem"}>
-                    <LinkThemed href={url} opacity={1}>
-                        {type === "about"
-                            ? "ABOUT PROJECT"
-                            : "VIEW DEMO"}
-                    </LinkThemed>
-                    {visibility === "public" && (
-                        <LinkThemed href={code} opacity={1}>
-                            {"VIEW CODE"}
+                    {project.type === "about" && (
+                        <LinkThemed
+                            href={`/projects/${project.id}`}
+                            opacity={1}
+                        >
+                            {"ABOUT"}
                         </LinkThemed>
+                    )}
+                    {project.type === "preview" && (
+                        <>
+                            <LinkThemed
+                                href={project.url}
+                                opacity={1}
+                            >
+                                {"PREVIEW"}
+                            </LinkThemed>
+                            <LinkThemed
+                                href={project.code}
+                                opacity={1}
+                            >
+                                {"CODE"}
+                            </LinkThemed>
+                        </>
                     )}
                 </VStack>
             </Flex>
